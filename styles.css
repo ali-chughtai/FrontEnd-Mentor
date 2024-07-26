@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Heebo:wght@100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Heebo";
+}
+body {
+  background-color: #fafafa;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 0;
+  background-color: #3e54a3;
+  color: white;
+  font-weight: 500;
+  font-size: 15px;
+}
+header a {
+  color: white;
+}
+
+/* //////////////////////////////// */
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1.2rem 3rem;
+  max-width: 140rem;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+nav ul {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+nav li {
+  list-style: none;
+}
+nav div {
+  display: flex;
+  gap: 1rem;
+}
+nav .navButtonDiv {
+  background-color: #1c2022;
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+nav .navButtonDiv p {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  /* font-size: 15px; */
+}
+nav a {
+  text-decoration: none;
+  color: black;
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* ///////////////////////////////////// */
+
+.hero {
+  display: flex;
+  row-gap: 2rem;
+  width: 80%;
+  max-width: 1150px;
+  justify-content:space-between;
+  gap: 1rem;
+  margin: 0 auto;
+  padding: 6rem 0;
+}
+.hero div h1 {
+  font-family: "Barlow", sans-serif;
+  font-size: xxx-large;
+  font-weight: 600;
+  color: #3E54A3;
+}
+.hero .leftDiv {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width:45%;
+}
+
+.hero .leftDiv #githubButton{
+    background-color:#ED2C49;
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10rem;
+    justify-content: center;
+    width: 50%;
+  }
+
+  .hero .leftDiv #githubButton p{
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+.hero .flexRow1 {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero .flexRow2 {
+  display: flex;
+  background-color: white;
+  gap: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.hero .rightDiv {
+    width: 45%;
+
+  }
