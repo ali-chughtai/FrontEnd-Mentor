@@ -8,6 +8,8 @@
 }
 body {
   background-color: #fafafa;
+  box-sizing: border-box;
+  /* padding: 0 1rem; */
 }
 header {
   display: flex;
@@ -24,7 +26,7 @@ header a {
   color: white;
 }
 
-/* //////////////////////////////// */
+/* ///////////////////////////////////////////////////////// */
 
 nav {
   display: flex;
@@ -73,49 +75,51 @@ nav a:hover {
   text-decoration: underline;
 }
 
-/* ///////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////// */
 
 .hero {
   display: flex;
   row-gap: 2rem;
-  width: 80%;
-  max-width: 1150px;
-  justify-content:space-between;
+  width: 100%;
+  max-width: 75rem;
+  justify-content: space-evenly;
   gap: 1rem;
-  margin: 0 auto;
+  margin: 1rem auto;
   padding: 6rem 0;
+  /* background-color: #949cbb; */
 }
 .hero div h1 {
   font-family: "Barlow", sans-serif;
   font-size: xxx-large;
   font-weight: 600;
-  color: #3E54A3;
+  color: #3e54a3;
 }
 .hero .leftDiv {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  width:45%;
+  width: 45%;
 }
-
-.hero .leftDiv #githubButton{
-    background-color:#ED2C49;
-    color: white;
-    padding: 0.5rem 1.5rem;
-    border-radius: 10rem;
-    justify-content: center;
-    width: 50%;
-  }
-
-  .hero .leftDiv #githubButton p{
-    font-family: "Barlow", sans-serif;
-    font-weight: 700;
-    font-style: italic;
-  }
 
 .hero .flexRow1 {
   display: flex;
   gap: 1rem;
+}
+
+.hero .flexRow1 button {
+  font-family: "Barlow", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: medium;
+  background-color: #ed2c49;
+  color: white;
+  display: flex;
+  gap: 1rem;
+  padding: 0.7rem 2.2rem;
+  border: none;
+  align-items: center;
+  justify-content: left;
+  border-radius: 40px;
 }
 
 .hero .flexRow2 {
@@ -124,8 +128,167 @@ nav a:hover {
   gap: 2rem;
   padding: 1rem;
   border-radius: 10px;
+  align-items: center;
+}
+.hero .flexRow2 p {
+  font-size: 1.1rem;
+  font-weight: 400;
+  line-height: 1.5;
 }
 .hero .rightDiv {
-    width: 45%;
+  width: 45%;
+}
 
+/* //////////////////////////////////////////////////////////// */
+
+main .reviews {
+  display: flex;
+  /* row-gap: 2rem; */
+  width: 100%;
+  max-width: 75rem;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 1rem auto;
+  padding: 3rem 0;
+}
+main .reviews div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  background-color: white;
+  padding: 1.5rem 2rem;
+  border-radius: 15px;
+  text-align: center;
+}
+
+main .reviews img {
+  max-width: 5.1rem;
+  border-radius: 50%;
+}
+main .reviews p {
+  font-size: larger;
+}
+
+main .reviewHeadingStyle {
+  color: rgb(62, 84, 163);
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+main .reviewParagraphStyle {
+  font-size: 0.9rem !important;
+  color: rgb(115, 115, 115);
+}
+main #reviewInnerInnerDiv {
+  /* background-color: #0e0f13; */
+  display: flex;
+  gap: 0.2rem;
+  padding: 1rem;
+}
+
+/* /////////////////////////////////////////////////////////////////////////// */
+
+main .sponsors {
+  display: flex;
+  width: 100%;
+  max-width: 75rem;
+  margin: 1rem auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  margin-top: 9rem;
+  /* background-color: #3e54a3; */
+}
+
+.sponsersInnerDiv {
+  display: flex;
+  justify-content: space-between; /* Optional: Add space between items */
+  width: 100%; /* Ensure it takes full width of the container */
+gap: 1rem;
+}
+
+.sponsersInnerDiv .imageDiv,
+.sponsersInnerDiv .imageDiv2,
+.sponsersInnerDiv .imageDiv3 {
+  flex: 1; /* Make each div take up equal space */
+  max-width: 33%; /* Ensure each div takes up to 33% of the container */
+  text-align: center; /* Center the content within each div */
+  background-color: white;
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  border: 1px solid #DBE5E6;
+  justify-content: center;
+  align-items: center;
+}
+
+.sponsersInnerDiv img {
+  width: 60%; /* Make images take full width of the parent div */
+  height: auto; /* Maintain the aspect ratio of images */
+  
+}
+
+/* ///////////////////////////////////////////////////////////////// */
+main .features{
+  width: 100%;
+  max-width: 75rem;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: "img1 text1"
+          "text2 img2"
+          "img3 text3"
+          "text4 img4"
+          "img5 text5";
+  gap: 6rem;
+  margin-top: 14rem;
+}
+
+
+.item1{grid-area: img1;}
+.item2{grid-area: text1;
+}
+.item2, h3 {
+
+}
+.item2, p {
+  
   }
+.item3{grid-area: text2;}
+.item4{grid-area: img2;}
+.item5{grid-area: img3;}
+.item6{grid-area: text3;}
+.item7{grid-area: text4;}
+.item8{grid-area: img4;}
+.item9{grid-area: img5;}
+.item10{grid-area: text5;}
+
+main .features img{
+  max-width: 100%;
+}
+
+main .features .emojiDiv{
+  background-color: #F0F4F4; border-radius: 100%; width:fit-content ;
+          padding: 0.6rem;
+}
+main .features .emoji{
+  font-size:xx-large;
+}
+
+main .features .textFlex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+}
+main .textFlex > p{
+  font-size: 1.3rem;  
+  color: #737373;
+}
+
+main .textFlex > h3{
+  font-family: "Barlow";
+font-size: 2.5rem;  
+font-weight: 500;
+color: black;
+}
