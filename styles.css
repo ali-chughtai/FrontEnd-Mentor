@@ -205,7 +205,7 @@ main .sponsors {
   display: flex;
   justify-content: space-between; /* Optional: Add space between items */
   width: 100%; /* Ensure it takes full width of the container */
-gap: 1rem;
+  gap: 1rem;
 }
 
 .sponsersInnerDiv .imageDiv,
@@ -217,7 +217,7 @@ gap: 1rem;
   background-color: white;
   padding: 1.5rem 0;
   border-radius: 10px;
-  border: 1px solid #DBE5E6;
+  border: 1px solid #dbe5e6;
   justify-content: center;
   align-items: center;
 }
@@ -225,70 +225,291 @@ gap: 1rem;
 .sponsersInnerDiv img {
   width: 60%; /* Make images take full width of the parent div */
   height: auto; /* Maintain the aspect ratio of images */
-  
 }
 
 /* ///////////////////////////////////////////////////////////////// */
-main .features{
+main .features {
   width: 100%;
   max-width: 75rem;
   margin: 1rem auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "img1 text1"
-          "text2 img2"
-          "img3 text3"
-          "text4 img4"
-          "img5 text5";
+  grid-template-areas:
+    "img1 text1"
+    "text2 img2"
+    "img3 text3"
+    "text4 img4"
+    "img5 text5";
   gap: 6rem;
   margin-top: 14rem;
 }
 
-
-.item1{grid-area: img1;}
-.item2{grid-area: text1;
+.item1 {
+  grid-area: img1;
 }
-.item2, h3 {
-
+.item2 {
+  grid-area: text1;
 }
-.item2, p {
-  
-  }
-.item3{grid-area: text2;}
-.item4{grid-area: img2;}
-.item5{grid-area: img3;}
-.item6{grid-area: text3;}
-.item7{grid-area: text4;}
-.item8{grid-area: img4;}
-.item9{grid-area: img5;}
-.item10{grid-area: text5;}
 
-main .features img{
+.item3 {
+  grid-area: text2;
+}
+.item4 {
+  grid-area: img2;
+}
+.item5 {
+  grid-area: img3;
+}
+.item6 {
+  grid-area: text3;
+}
+.item7 {
+  grid-area: text4;
+}
+.item8 {
+  grid-area: img4;
+}
+.item9 {
+  grid-area: img5;
+}
+.item10 {
+  grid-area: text5;
+}
+
+main .features img {
   max-width: 100%;
 }
 
-main .features .emojiDiv{
-  background-color: #F0F4F4; border-radius: 100%; width:fit-content ;
-          padding: 0.6rem;
+main .features .emojiDiv {
+  background-color: #f0f4f4;
+  border-radius: 100%;
+  width: fit-content;
+  padding: 0.6rem;
 }
-main .features .emoji{
-  font-size:xx-large;
+main .features .emoji {
+  font-size: xx-large;
 }
 
-main .features .textFlex{
+main .features .textFlex {
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 1.5rem;
 }
-main .textFlex > p{
-  font-size: 1.3rem;  
+main .textFlex > p {
+  font-size: 1.3rem;
   color: #737373;
 }
 
-main .textFlex > h3{
+main .textFlex > h3 {
   font-family: "Barlow";
-font-size: 2.5rem;  
-font-weight: 500;
-color: black;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: black;
 }
+
+/* ///////////////////////////////////////////////// */
+
+.working {
+  background-color: #f0f4f4;
+  margin: 7rem 2rem;
+  border-radius: 10px;
+  padding: 3rem 0;
+}
+.working .workingRightDiv {
+  width: 50%;
+}
+
+.working .workingMainDiv {
+  width: 100%;
+  max-width: 75rem;
+  margin: 1rem auto;
+  display: flex;
+  gap: 0.5REM;
+}
+.working .workingLeftDiv {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.working details[open] {
+  background-color:#3e54a3;
+  padding: 1.3rem 2rem;
+  border-radius: 10px;
+}
+.working summary {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: white;
+  /* background-color:yellow ; */
+  /* width: max-content; */
+  /* margin-left: 1rem; */
+}
+
+.working details[open] summary > p {
+  font-size: medium;
+  color: #3e54a3;
+  border-radius: 100%;
+  background-color: white;
+  font-family: "Barlow", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  padding: 0.45rem 0.8rem;
+}
+.working details[open] summary > h6 {
+  font-size: 1.3rem;
+  font-family: "Barlow";
+  font-weight: 600;
+  color: white;
+}
+
+.working details[open] div p {
+  padding-top: 1rem;
+  color: #dbe5e6;
+  font-size: medium;
+}
+.working div > h4 {
+  font-family: "Barlow", Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #1C2022;
+  /* padding-bottom: 2rem; */
+}
+
+/* Non Active /////////////////////////////// */
+.working details {
+  background-color: white;
+  padding: 1.3rem 2rem;
+  border-radius: 10px;
+}
+.working summary > p {
+  color: white;
+  background-color: #6ABECD;
+  font-size: medium;
+  border-radius: 100%;
+  font-family: "Barlow", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+  padding: 0.45rem 0.8rem;
+  user-select: none;
+}
+.working summary > h6 {
+  color: #1C2022;
+  font-size: 1.3rem;
+  font-family: "Barlow";
+  font-weight: 600;
+  user-select: none;
+}
+.working details:hover{
+  cursor: pointer;
+}
+
+.workingRightDiv{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.workingRightDiv img {
+  display: none; /* Hide all images by default */
+  max-width: 100%;
+}
+
+.workingRightDiv img.active {
+  display: block; /* Show the active image */
+}
+/* ////////////////////////////////////////// */
+/* Community */
+
+.community{
+  background-color: #f0f4f4;
+  margin: 7rem 2rem;
+  border-radius: 10px;
+  padding: 3rem 0;
+
+}
+
+.community .communityMainDiv{
+width: 100%;
+max-width: 75rem;
+margin: 1rem auto;
+display: flex;
+flex-direction: column;
+gap: 3rem;
+}
+
+.communityTopDiv{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+
+.communityTopDiv button{
+ padding: 1rem;
+ border-radius: 100%;
+ border: none;
+ background-color:#3e54a3;
+ display: flex;
+}
+
+.communityTopDiv h2{
+font-family: "Barlow";
+font-size: 2.5rem;
+font-weight: 500;
+color: #1C2022;
+}
+.community .communityBottomDiv{
+  display: flex;
+  /* overflow-x: hidden; */
+  gap: 1rem;
+  transition: transform .4s ease-in;
+  
+
+}
+
+.community .pfp{
+display: flex;
+gap: 1rem;
+/* justify-content: center; */
+align-items: center;
+}
+
+.community .pfp img{
+  max-width: 3.5rem;
+  border-radius: 50%;
+}
+
+.community .card{
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  flex: 0 0 32.33%;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 2rem;
+border-radius: 10px;
+}
+
+.community .card p{
+  font-size: large; color:#737373 ;
+}
+
+
+.community .card .pfp h6{
+ color: #3E54A6;
+ font-size: 16px;
+ font-weight: 900;
+}
+
+.community .card .pfp  p{
+  font-size:medium ;
+ }
+
+ /* gpt */
+ 
+

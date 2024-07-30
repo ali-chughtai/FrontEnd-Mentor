@@ -3,68 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
     <style>
-        main .sponsors {
-            display: flex;
-            width: 100%;
-            max-width: 75rem;
-            margin: 1rem auto;
-            flex-direction: column;
-            align-items: center;
-            gap: 3rem;
-            margin-top: 9rem;
-            background-color: #3e54a3;
-        }
+        .carousel-container {
+    position: relative;
+    overflow: hidden; /* Hide overflowing items */
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the carousel */
+}
 
-        .sponsersInnerDiv {
-            display: flex;
-            justify-content: space-between; /* Optional: Add space between items */
-            width: 100%; /* Ensure it takes full width of the container */
-        }
+.carousel-wrapper {
+    overflow: hidden; /* Hide overflowing content */
+}
 
-        .sponsersInnerDiv .imageDiv,
-        .sponsersInnerDiv .imageDiv2,
-        .sponsersInnerDiv .imageDiv3 {
-            flex: 1; /* Make each div take up equal space */
-            max-width: 33%; /* Ensure each div takes up to 33% of the container */
-            text-align: center; /* Center the content within each div */
-            background-color: white;
-            padding: 1.5rem 0;
-        }
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease; /* Smooth transition for scrolling */
+}
 
-        .sponsersInnerDiv img {
-            width: 50%; /* Make images take full width of the parent div */
-            height: auto; /* Maintain the aspect ratio of images */
-        }
+.carousel-item {
+    min-width: 33.33%; /* Show 3 items at a time */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 10px; /* Space around items */
+}
 
-        h4 {
-            color: #fff; /* Optional: Style the heading */
-        }
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
     </style>
-    <title>Flexbox Full Width Example</title>
 </head>
 <body>
-    <main>
-        <div class="sponsors">
-            <h4>AS FEATURED ON...</h4>
-            <div class="sponsersInnerDiv">
-                <div class="imageDiv">
-                    <a href="#Frontend Challenges">
-                        <img src="https://www.frontendmentor.io/static/images/logo-css-tricks.svg" alt="CSS-Tricks">
-                    </a>
-                </div>
-                <div class="imageDiv2">
-                    <a href="#StackOverflow">
-                        <img src="https://www.frontendmentor.io/static/images/logo-stack-overflow.svg" alt="Stack Overflow">
-                    </a>
-                </div>
-                <div class="imageDiv3">
-                    <a href="#Frontend Challenges">
-                        <img src="https://www.frontendmentor.io/static/images/logo-product-hunt.svg" alt="Product Hunt">
-                    </a>
-                </div>
+    <div class="carousel-container">
+        <button class="arrow left-arrow">&lt;</button>
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <div class="carousel-item">Item 1</div>
+                <div class="carousel-item">Item 2</div>
+                <div class="carousel-item">Item 3</div>
+                <div class="carousel-item">Item 4</div>
+                <div class="carousel-item">Item 5</div>
+                <div class="carousel-item">Item 6</div>
+                <div class="carousel-item">Item 7</div>
+                <div class="carousel-item">Item 8</div>
+                <div class="carousel-item">Item 9</div>
+                <div class="carousel-item">Item 10</div>
             </div>
         </div>
-    </main>
+        <button class="arrow right-arrow">&gt;</button>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const carousel = document.querySelector(".carousel");
+    const items = document.querySelectorAll(".carousel-item");
+    const totalItems = items.length;
+    const visibleItems = 3; // Number of items to show at a time
+    const itemWidth = items[0].clientWidth; // Width of each item
+    const wrapperWidth = document.querySelector(".carousel-wrapper").clientWidth;
+    
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const offset = -(currentIndex * itemWidth);
+        carousel.style.transform = `translateX(${offset}px)`;
+    }
+
+    document.querySelector(".right-arrow").addEventListener("click", function() {
+        if (currentIndex < totalItems - visibleItems) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    document.querySelector(".left-arrow").addEventListener("click", function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    // Optional: Set up an initial view
+    updateCarousel();
+});
+
+    </script>
 </body>
 </html>
