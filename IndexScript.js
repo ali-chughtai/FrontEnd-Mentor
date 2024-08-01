@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const detailsElements = document.querySelectorAll("details");
+    const customDetailsElements = document.querySelectorAll(".custom-details");
     const images = document.querySelectorAll(".workingRightDiv img");
 
-    // Function to update images based on the open details
     function updateImages() {
-        detailsElements.forEach((details, index) => {
+        customDetailsElements.forEach((details, index) => {
             if (details.hasAttribute("open")) {
                 images.forEach((img, imgIndex) => {
                     img.classList.toggle('active', imgIndex === index);
@@ -13,76 +12,136 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-    // Function to handle details opening
     function handleDetailsClick(e) {
-        const clickedDetails = e.target.closest('details');
+        const clickedDetails = e.target.closest('.custom-details');
 
         if (clickedDetails) {
-            // Prevent default action for the click event
             e.preventDefault();
-            
-            // Check if the clicked details is already open
+
             if (clickedDetails.hasAttribute("open")) {
-                // If already open, do nothing to prevent closing
                 return;
             } else {
-                // Close all details except the clicked one
-                detailsElements.forEach(details => {
+                customDetailsElements.forEach(details => {
                     details.removeAttribute("open");
                 });
 
-                // Open the clicked details
                 clickedDetails.setAttribute("open", true);
 
-                // Update images based on the open details
                 updateImages();
             }
         }
     }
 
-    // Add click event listeners to all summary elements within details
-    detailsElements.forEach(details => {
+    customDetailsElements.forEach(details => {
         const summary = details.querySelector('summary');
-        const deets = document.querySelector("details")
         if (summary) {
             summary.addEventListener("click", handleDetailsClick);
         }
     });
-    
 
-    // Open the first details by default and update images
-    detailsElements[0].setAttribute("open", true);
+    customDetailsElements[0].setAttribute("open", true);
     updateImages();
 
-    // Ensure at least one details is open after any click
     function ensureAtLeastOneOpen() {
-        const openDetails = document.querySelector('details[open]');
+        const openDetails = document.querySelector('.custom-details[open]');
         if (!openDetails) {
-            // If no details is open, open the first one
-            detailsElements[0].setAttribute("open", true);
+            customDetailsElements[0].setAttribute("open", true);
         }
 
-        // Update images based on the open details
         updateImages();
     }
+});
 
-    document.addEventListener("click", ensureAtLeastOneOpen);
+document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector(".communityBottomDiv");
+    const cards = Array.from(document.querySelectorAll(".communityBottomDiv .card"));
     const left = document.querySelector(".prevBtn");
     const right = document.querySelector(".nextBtn");
-    let translate = 0;
+    
+    const visibleCount = 3; // Number of cards to show at once
+    let startIndex = 0; // Track start index for visible cards
+
+    function updateCards() {
+        // Hide all cards first
+        cards.forEach(card => card.style.display = 'none');
+        
+        // Show the cards in the current range
+        for (let i = startIndex; i < startIndex + visibleCount; i++) {
+            if (cards[i]) {
+                cards[i].style.display = 'flex'; // Show card
+            }
+        }
+
+        // Update button states
+        updateButtonStates();
+    }
+
+    function scrollCards(offset) {
+        // Update startIndex based on offset
+        startIndex += offset;
+
+        // Prevent startIndex from going out of bounds
+        if (startIndex < 0) startIndex = 0;
+        if (startIndex + visibleCount > cards.length) startIndex = cards.length - visibleCount;
+
+        // Update the card visibility
+        updateCards();
+    }
+
+    function updateButtonStates() {
+        // Disable left button if at the beginning
+        if (startIndex === 0) {
+            left.classList.add('btn-disabled');
+            left.disabled = true;
+        } else {
+            left.classList.remove('btn-disabled');
+            left.disabled = false;
+        }
+
+        // Disable right button if at the end
+        if (startIndex + visibleCount >= cards.length) {
+            right.classList.add('btn-disabled');
+            right.disabled = true;
+        } else {
+            right.classList.remove('btn-disabled');
+            right.disabled = false;
+        }
+    }
+
+    // Initial display
+    updateCards();
+
+    // Event listeners
     left.addEventListener("click", function() {
-        translate += 33;
-        container.style.transform = "translateX(" + translate + "%)";
+        if (!left.disabled) {
+            scrollCards(-1); // Scroll left by one card's width
+        }
     });
 
     right.addEventListener("click", function() {
-        translate -= 33;
-        container.style.transform = "translateX(" + translate + "%)";
+        if (!right.disabled) {
+            scrollCards(1); // Scroll right by one card's width
+        }
     });
-   
-    
-    
-
 });
+
+document.querySelectorAll(".faqs details").forEach((detail) => {
+    detail.addEventListener("toggle", function() {
+        const summary = this.querySelector("summary");
+        const closedIcon = summary.querySelector(".closed-icon");
+        const openIcon = summary.querySelector(".open-icon");
+
+        if (this.open) {
+            closedIcon.style.display = "none";
+            openIcon.style.display = "inline";
+        } else {
+            closedIcon.style.display = "inline";
+            openIcon.style.display = "none";
+        }
+    });
+});
+
+
+
+
 
