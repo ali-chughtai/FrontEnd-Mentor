@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const customDetailsElements = document.querySelectorAll(".custom-details");
+    const customDetailsElements = document.querySelectorAll("details");
     const images = document.querySelectorAll(".workingRightDiv img");
 
     function updateImages() {
@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function handleDetailsClick(e) {
-        const clickedDetails = e.target.closest('.custom-details');
+        const clickedDetails = e.target.closest('details');
 
         if (clickedDetails) {
             e.preventDefault();
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     updateImages();
 
     function ensureAtLeastOneOpen() {
-        const openDetails = document.querySelector('.custom-details[open]');
+        const openDetails = document.querySelector('.details[open]');
         if (!openDetails) {
             customDetailsElements[0].setAttribute("open", true);
         }
