@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function handleDetailsClick(e) {
-        const clickedDetails = e.target.closest('details');
+        const clickedDetails = e.target.closest('.custom-details');
 
         if (clickedDetails) {
             e.preventDefault();
@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function() {
     updateImages();
 
     function ensureAtLeastOneOpen() {
-        const openDetails = document.querySelector('.details[open]');
+        const openDetails = document.querySelector('.custom-details[open]');
         if (!openDetails) {
             customDetailsElements[0].setAttribute("open", true);
         }
