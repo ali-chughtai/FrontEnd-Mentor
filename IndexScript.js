@@ -125,23 +125,31 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-document.querySelectorAll(".faqs details").forEach((detail) => {
-    detail.addEventListener("toggle", function() {
-        const summary = this.querySelector("summary");
-        const closedIcon = summary.querySelector(".closed-icon");
-        const openIcon = summary.querySelector(".open-icon");
 
-        if (this.open) {
-            closedIcon.style.display = "none";
-            openIcon.style.display = "inline";
+
+function handleScroll() {
+    const scrollButton = document.querySelector('.refrenceButton');
+    
+    const isMobile = window.matchMedia('(max-width: 499px)').matches;
+    
+    
+        const working = document.querySelector('.working');
+        const workingOffset = working.offsetTop - window.innerHeight;
+
+        if (window.scrollY <= workingOffset) {
+            scrollButton.style.display = 'none';
         } else {
-            closedIcon.style.display = "inline";
-            openIcon.style.display = "none";
+            scrollButton.style.display = 'block';
         }
-    });
-});
+   
+    
+}
 
+window.addEventListener('scroll', handleScroll);
 
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 
 
