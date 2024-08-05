@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
+      body{
+        background-color: #f0f4f4;
+        padding: 3rem;
+      }
         .carousel-container {
     position: relative;
     overflow: hidden; /* Hide overflowing items */
-    width: 80%; /* Adjust width as needed */
+    width: 100%;
     margin: 0 auto; /* Center the carousel */
 }
 
@@ -19,12 +24,15 @@
 .carousel {
     display: flex;
     transition: transform 0.3s ease; /* Smooth transition for scrolling */
-}
+    display: flex;
+    gap: 1rem
+  }
 
 .carousel-item {
-    min-width: 33.33%; /* Show 3 items at a time */
-    box-sizing: border-box; /* Include padding and border in width */
+    min-width: 32.33%; /* Show 3 items at a time */
+    box-sizing: border-box; 
     padding: 10px; /* Space around items */
+;
 }
 
 .arrow {
@@ -47,27 +55,374 @@
     right: 10px;
 }
 
+.community {
+  background-color: #f0f4f4;
+  margin: 7rem 2rem;
+  border-radius: 10px;
+  padding: 3rem 1rem;
+}
+
+.community .communityMainDiv {
+  width: 100%;
+  max-width: 75rem;
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.communityTopDiv {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  /* justify-content: space-around; */
+  align-items: center;
+}
+
+.communityTopDiv button {
+  padding: 1rem;
+  border-radius: 100%;
+  border: none;
+  background-color: #3e54a3;
+  display: flex;
+}
+.communityTopDiv button:hover {
+  background-color: #38446d;
+  cursor: pointer;
+}
+
+.communityTopDiv button:disabled {
+  background-color: #c0c0c0; /* Gray color */
+  color: #6c757d; /* Light gray text */
+}
+
+.communityTopDiv h2 {
+  font-family: "Barlow";
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: #1c2022;
+}
+.communityBottomDiv {
+  display: flex;
+  overflow-x: hidden;
+  gap: 1rem;
+  transition: transform 0.4s ease-in;
+  width: 100%;
+  max-width: 100%;
+}
+
+.pfp {
+  display: flex;
+  gap: 1rem;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.pfp img {
+  max-width: 3.5rem;
+  border-radius: 50%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  /* flex: 0 0 32.33%; */
+  justify-content: space-between;
+  /* gap: 3rem; */
+  padding: 2rem;
+  border-radius: 10px;
+  /* display: none; */
+  user-select: none;
+}
+
+.card p {
+  font-size: large;
+  color: #737373;
+}
+
+.card .pfp h6 {
+  color: #3e54a6;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.card .pfp p {
+  font-size: medium;
+}
+
     </style>
 </head>
 <body>
+
+  <div class="community">
+    <div class="communityMainDiv">
+      <div class="communityTopDiv">
+        <h2>A little ❤️ from our community</h2>
+        <div style="display: flex; gap: 0.3rem">
+          <button class="prevBtn">
+            <svg
+              width="25px"
+              height="25px"
+              viewBox="0 -6.5 38 38"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              fill="#ffffff"
+              stroke="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>left-arrow</title>
+                <desc>Created with Sketch.</desc>
+                <g
+                  id="icons"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="ui-gambling-website-lined-icnos-casinoshunter"
+                    transform="translate(-1641.000000, -158.000000)"
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                  >
+                    <g
+                      id="1"
+                      transform="translate(1350.000000, 120.000000)"
+                    >
+                      <path
+                        d="M317.812138,38.5802109 L328.325224,49.0042713 L328.41312,49.0858421 C328.764883,49.4346574 328.96954,49.8946897 329,50.4382227 L328.998248,50.6209428 C328.97273,51.0514917 328.80819,51.4628128 328.48394,51.8313977 L328.36126,51.9580208 L317.812138,62.4197891 C317.031988,63.1934036 315.770571,63.1934036 314.990421,62.4197891 C314.205605,61.6415481 314.205605,60.3762573 314.990358,59.5980789 L322.274264,52.3739093 L292.99947,52.3746291 C291.897068,52.3746291 291,51.4850764 291,50.3835318 C291,49.2819872 291.897068,48.3924345 292.999445,48.3924345 L322.039203,48.3917152 L314.990421,41.4019837 C314.205605,40.6237427 314.205605,39.3584519 314.990421,38.5802109 C315.770571,37.8065964 317.031988,37.8065964 317.812138,38.5802109 Z"
+                        id="left-arrow"
+                        transform="translate(310.000000, 50.500000) scale(-1, 1) translate(-310.000000, -50.500000) "
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+          <button class="nextBtn" onclick="scrollRight()">
+            <svg
+              width="25px"
+              height="25px"
+              viewBox="0 -6.5 38 38"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              fill="#ffffff"
+              stroke="#ffffff"
+              transform="rotate(180)"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <title>left-arrow</title>
+                <desc>Created with Sketch.</desc>
+                <g
+                  id="icons"
+                  stroke="none"
+                  stroke-width="1"
+                  fill="none"
+                  fill-rule="evenodd"
+                >
+                  <g
+                    id="ui-gambling-website-lined-icnos-casinoshunter"
+                    transform="translate(-1641.000000, -158.000000)"
+                    fill="#ffffff"
+                    fill-rule="nonzero"
+                  >
+                    <g
+                      id="1"
+                      transform="translate(1350.000000, 120.000000)"
+                    >
+                      <path
+                        d="M317.812138,38.5802109 L328.325224,49.0042713 L328.41312,49.0858421 C328.764883,49.4346574 328.96954,49.8946897 329,50.4382227 L328.998248,50.6209428 C328.97273,51.0514917 328.80819,51.4628128 328.48394,51.8313977 L328.36126,51.9580208 L317.812138,62.4197891 C317.031988,63.1934036 315.770571,63.1934036 314.990421,62.4197891 C314.205605,61.6415481 314.205605,60.3762573 314.990358,59.5980789 L322.274264,52.3739093 L292.99947,52.3746291 C291.897068,52.3746291 291,51.4850764 291,50.3835318 C291,49.2819872 291.897068,48.3924345 292.999445,48.3924345 L322.039203,48.3917152 L314.990421,41.4019837 C314.205605,40.6237427 314.205605,39.3584519 314.990421,38.5802109 C315.770571,37.8065964 317.031988,37.8065964 317.812138,38.5802109 Z"
+                        id="left-arrow"
+                        transform="translate(310.000000, 50.500000) scale(-1, 1) translate(-310.000000, -50.500000) "
+                      ></path>
+                    </g>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+    
     <div class="carousel-container">
-        <button class="arrow left-arrow">&lt;</button>
         <div class="carousel-wrapper">
             <div class="carousel">
-                <div class="carousel-item">Item 1</div>
-                <div class="carousel-item">Item 2</div>
-                <div class="carousel-item">Item 3</div>
-                <div class="carousel-item">Item 4</div>
-                <div class="carousel-item">Item 5</div>
-                <div class="carousel-item">Item 6</div>
-                <div class="carousel-item">Item 7</div>
-                <div class="carousel-item">Item 8</div>
-                <div class="carousel-item">Item 9</div>
-                <div class="carousel-item">Item 10</div>
+                <div class="card carousel-item" data-number="1">
+                    <p>
+                      This platform provides everything developers need to improve
+                      their skills. The community is great, and the challenges keep me
+                      motivated, instil accountability through regular submissions,
+                      and allow me to build a professional portfolio by showcasing
+                      diverse projects.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-francesca.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Francesca</h6>
+                        <p>@frran</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card carousel-item" data-number="2">
+                    <p>
+                      Frontend Mentor eliminated the hurdle of sourcing designs,
+                      letting me focus on development. Their professional projects,
+                      especially in the Pro subscription, challenge me to create
+                      complex, multi-page websites. With a supportive community and
+                      feedback from advanced programmers, my skills have been elevated
+                      to new heights.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-alfie.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Alfie</h6>
+                        <p>@alfiemitchell123</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card carousel-item" data-number="3">
+                    <p>
+                      Frontend Mentor transformed me from a newbie to a professional
+                      developer, enabling me to create flawless, responsive,
+                      accessible websites. It’s a superb platform for feedback with a
+                      supportive community backing your growth. Through it, I evolved
+                      from a frontend to a full-stack developer.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-hikmah.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Hikma</h6>
+                        <p>@Hikmahx</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card carousel-item" data-number="4">
+                    <p>
+                      Frontend Mentor has helped tremendously. Working on the newbie
+                      challenges really helped me get better at building layouts.
+                      Also, it increased my JavaScript skills. Working with APIs, DOM
+                      manipulation, and so on greatly increased my knowledge. Would
+                      totally recommend it.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-nuel.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Nuel</h6>
+                        <p>@ijklmopffs</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card carousel-item" data-number="5">
+                    <p>
+                      After completing a software bootcamp, Frontend Mentor let me
+                      build real-world projects, strengthening my developer skills. I
+                      wouldn’t be where I am today without it.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-michelle.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Michelle</h6>
+                        <p>@maberizk</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card carousel-item" data-number="6">
+                    <p>
+                      As a backend developer, I sought to improve my frontend skills.
+                      Frontend Mentor provided beautifully designed challenges,
+                      allowing me to progress from simple components to advanced
+                      responsive web pages. Enough can’t be said about the community
+                      members. Their feedback has been invaluable in my journey to
+                      becoming a better developer.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-arturo.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Arturo</h6>
+                        <p>@artimys</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card carousel-item" data-number="7">
+                    <p>
+                      Frontend Mentor offers invaluable real-world web development
+                      challenges, sharpening my HTML, CSS, and JavaScript skills. The
+                      structured feedback, solutions, and vibrant community have
+                      significantly impacted my learning and growth. It’s both a
+                      skill-building platform and a community hub for web developers.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-shashikant.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Shashikant</h6>
+                        <p>@shashikantdev3</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card carousel-item" data-number="8">
+                    <p>
+                      I began my frontend journey with Frontend Mentor’s newbie
+                      challenges and progressed to more complex projects. Some of the
+                      complex ones are now even in my portfolio! The supportive
+                      community and the dedication of the Frontend Mentor team are
+                      unmatched. I highly recommend it for newcomers and those keen on
+                      improving their skills.
+                    </p>
+                    <div class="pfp">
+                      <img
+                        src="https://www.frontendmentor.io/static/images/home-avatar-marit.webp"
+                        alt=""
+                      />
+                      <div>
+                        <h6>Marit</h6>
+                        <p>@Maritxx</p>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
-        <button class="arrow right-arrow">&gt;</button>
     </div>
+    </div>
+    </div>
+
+
     <script>
         document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
@@ -84,14 +439,14 @@
         carousel.style.transform = `translateX(${offset}px)`;
     }
 
-    document.querySelector(".right-arrow").addEventListener("click", function() {
+    document.querySelector(".nextBtn").addEventListener("click", function() {
         if (currentIndex < totalItems - visibleItems) {
             currentIndex++;
             updateCarousel();
         }
     });
 
-    document.querySelector(".left-arrow").addEventListener("click", function() {
+    document.querySelector(".prevBtn").addEventListener("click", function() {
         if (currentIndex > 0) {
             currentIndex--;
             updateCarousel();

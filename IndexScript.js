@@ -52,80 +52,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelector(".communityBottomDiv");
-    const cards = Array.from(document.querySelectorAll(".communityBottomDiv .card"));
-    const left = document.querySelector(".prevBtn");
-    const right = document.querySelector(".nextBtn");
-    
-    const visibleCount = 3; // Number of cards to show at once
-    let startIndex = 0; // Track start index for visible cards
-
-    function updateCards() {
-        // Hide all cards first
-        cards.forEach(card => card.style.display = 'none');
-        
-        // Show the cards in the current range
-        for (let i = startIndex; i < startIndex + visibleCount; i++) {
-            if (cards[i]) {
-                cards[i].style.display = 'flex'; // Show card
-            }
-        }
-
-        // Update button states
-        updateButtonStates();
-    }
-
-    function scrollCards(offset) {
-        // Update startIndex based on offset
-        startIndex += offset;
-
-        // Prevent startIndex from going out of bounds
-        if (startIndex < 0) startIndex = 0;
-        if (startIndex + visibleCount > cards.length) startIndex = cards.length - visibleCount;
-
-        // Update the card visibility
-        updateCards();
-    }
-
-    function updateButtonStates() {
-        // Disable left button if at the beginning
-        if (startIndex === 0) {
-            left.classList.add('btn-disabled');
-            left.disabled = true;
-        } else {
-            left.classList.remove('btn-disabled');
-            left.disabled = false;
-        }
-
-        // Disable right button if at the end
-        if (startIndex + visibleCount >= cards.length) {
-            right.classList.add('btn-disabled');
-            right.disabled = true;
-        } else {
-            right.classList.remove('btn-disabled');
-            right.disabled = false;
-        }
-    }
-
-    // Initial display
-    updateCards();
-
-    // Event listeners
-    left.addEventListener("click", function() {
-        if (!left.disabled) {
-            scrollCards(-1); // Scroll left by one card's width
-        }
-    });
-
-    right.addEventListener("click", function() {
-        if (!right.disabled) {
-            scrollCards(1); // Scroll right by one card's width
-        }
-    });
-});
-
-
 
 function handleScroll() {
     const scrollButton = document.querySelector('.refrenceButton');
@@ -151,5 +77,45 @@ function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+document.addEventListener("DOMContentLoaded", function() {
+    const carousel = document.querySelector(".carousel");
+    const items = document.querySelectorAll(".carousel-item");
+    const totalItems = items.length;
+    const visibleItems = 3; // Number of items to show at a time
+    const itemWidth = items[0].clientWidth;
+    const gap = parseFloat(window.getComputedStyle(carousel).gap); // Get the gap between items
+    const wrapperWidth = document.querySelector(".carousel-wrapper").clientWidth;
 
+    let currentIndex = 0;
 
+    function updateCarousel() {
+        const maxOffset = -((totalItems - visibleItems) * (itemWidth + gap));
+        const offset = Math.max(-(currentIndex * (itemWidth + gap)), maxOffset);
+        carousel.style.transform = `translateX(${offset}px)`;
+    }
+
+    document.querySelector(".nextBtn").addEventListener("click", function() {
+        if (currentIndex < totalItems - visibleItems) {
+            currentIndex++;
+            updateCarousel();
+        }
+        updateButtonStates();
+    });
+
+    document.querySelector(".prevBtn").addEventListener("click", function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+        updateButtonStates();
+    });
+
+    function updateButtonStates() {
+        document.querySelector(".prevBtn").disabled = currentIndex === 0;
+        document.querySelector(".nextBtn").disabled = currentIndex >= totalItems - visibleItems;
+    }
+
+    // Initial display
+    updateCarousel();
+    updateButtonStates();
+});

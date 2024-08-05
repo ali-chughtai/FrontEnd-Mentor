@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .carousel-container {
+    position: relative;
+    overflow: hidden; /* Hide overflowing items */
+    width: 80%; /* Adjust width as needed */
+    margin: 0 auto; /* Center the carousel */
+}
+
+.carousel-wrapper {
+    overflow: hidden; /* Hide overflowing content */
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease; /* Smooth transition for scrolling */
+}
+
+.carousel-item {
+    min-width: 33.33%; /* Show 3 items at a time */
+    box-sizing: border-box; /* Include padding and border in width */
+    padding: 10px; /* Space around items */
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="carousel-container">
+        <button class="arrow left-arrow">&lt;</button>
+        <div class="carousel-wrapper">
+            <div class="carousel">
+                <div class="carousel-item">Item 1</div>
+                <div class="carousel-item">Item 2</div>
+                <div class="carousel-item">Item 3</div>
+                <div class="carousel-item">Item 4</div>
+                <div class="carousel-item">Item 5</div>
+                <div class="carousel-item">Item 6</div>
+                <div class="carousel-item">Item 7</div>
+                <div class="carousel-item">Item 8</div>
+                <div class="carousel-item">Item 9</div>
+                <div class="carousel-item">Item 10</div>
+            </div>
+        </div>
+        <button class="arrow right-arrow">&gt;</button>
+    </div>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const carousel = document.querySelector(".carousel");
+    const items = document.querySelectorAll(".carousel-item");
+    const totalItems = items.length;
+    const visibleItems = 3; // Number of items to show at a time
+    const itemWidth = items[0].clientWidth; // Width of each item
+    const wrapperWidth = document.querySelector(".carousel-wrapper").clientWidth;
+    
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const offset = -(currentIndex * itemWidth);
+        carousel.style.transform = `translateX(${offset}px)`;
+    }
+
+    document.querySelector(".right-arrow").addEventListener("click", function() {
+        if (currentIndex < totalItems - visibleItems) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    document.querySelector(".left-arrow").addEventListener("click", function() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
+    });
+
+    // Optional: Set up an initial view
+    updateCarousel();
+});
+
+    </script>
+</body>
+</html>
