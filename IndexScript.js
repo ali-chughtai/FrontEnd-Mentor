@@ -59,7 +59,7 @@ function handleScroll() {
     const isMobile = window.matchMedia('(max-width: 499px)').matches;
     
     
-        const working = document.querySelector('.working');
+        const working = document.querySelector('.features');
         const workingOffset = working.offsetTop - window.innerHeight;
 
         if (window.scrollY <= workingOffset) {
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
     const items = document.querySelectorAll(".carousel-item");
     const totalItems = items.length;
-    const visibleItems = 3; // Number of items to show at a time
+    const visibleItems = 2; // Number of items to show at a time
     const itemWidth = items[0].clientWidth;
     const gap = parseFloat(window.getComputedStyle(carousel).gap); // Get the gap between items
     const wrapperWidth = document.querySelector(".carousel-wrapper").clientWidth;
@@ -119,3 +119,60 @@ document.addEventListener("DOMContentLoaded", function() {
     updateCarousel();
     updateButtonStates();
 });
+
+
+function drawerClicked() {
+    const FirstBar = document.getElementById("one");
+    const SecondBar = document.getElementById("two");
+    const ThirdBar = document.getElementById("three");
+    const drawerDiv = document.querySelector(".drawerDiv");
+
+    if (drawerDiv.getAttribute("data-state") === "closed") {
+     SecondBar.style.opacity= "0";
+      FirstBar.style.transform = "rotate(45deg) translate(0, 11.5px)";
+      ThirdBar.style.transform = "rotate(-45deg) translate(0, -11.5px)";
+      drawerDiv.setAttribute("data-state", "open");
+      drawerDiv.style.paddingLeft = "1.1rem";
+    } else {
+     
+      FirstBar.style.transform = "rotate(0deg) translate(0, 0)";
+      ThirdBar.style.transform = "rotate(0deg) translate(0, 0)";
+      SecondBar.style.opacity= "1"
+
+      drawerDiv.setAttribute("data-state", "closed");
+      drawerDiv.style.paddingLeft = "0";
+
+    }
+  }
+
+  function mobileDrawerClicked(){
+    const info = document.querySelector(".mobileDrawer");
+    if (info.style.display === "none" || info.style.display === "") {
+        info.style.display = "block";
+      } else {
+        info.style.display = "none";
+      }
+  }
+
+
+// Media Query used to change the image in different aspects of windows, but everytime to change
+// the image you have to refresh the page so media query in css is better than changing here 
+  function updateImageSrc() {
+    const image = document.getElementById("navLogoImage");
+    console.log('Script loaded, Image element:', image);
+  
+    if (window.matchMedia('(max-width: 1024px)').matches) {
+      image.src = "https://www.frontendmentor.io/static/images/logo-mobile.svg";
+    }
+    else{
+        image.src = "https://www.frontendmentor.io/static/images/logo-desktop.svg";
+
+    }
+  };
+
+  document.addEventListener("DOMContentLoaded", updateImageSrc);
+window.addEventListener("resize", updateImageSrc);
+
+// The above two lines change the image without the page requiring 
+// to refresh or load evertime, eg: dynamically
+  
