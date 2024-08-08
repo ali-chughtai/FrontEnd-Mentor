@@ -68,7 +68,7 @@ header a {
 header div {
   display: flex;
   gap: 0.3rem;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }
 
@@ -158,13 +158,19 @@ nav .diver {
 
 /* ///////////////////////////////////////////////////////////////// */
 /* Mobile Drawer */
-
 .mobileDrawer {
-  display: none;
+  max-height: 0;
+  overflow: hidden;
   background-color: white;
   z-index: 1;
+  transition: max-height 0.5s ease-out;
 }
 
+.mobileDrawer.open {
+  max-height: 500px; /* Adjust based on your content's height */
+}
+
+/* The rest of your existing styles */
 .mobileDrawer a {
   text-decoration: none;
   font-family: "Barlow";
@@ -196,8 +202,8 @@ nav .diver {
   font-family: "Barlow", sans-serif;
   font-weight: 700;
   font-style: italic;
-  /* font-size: 15px; */
 }
+
 /* ////////////////////////////////////////////////////////////////////////////// */
 
 .hero {
@@ -263,6 +269,7 @@ nav .diver {
 .hero .rightDiv {
   width: 45%;
 }
+
 
 /* //////////////////////////////////////////////////////////// */
 
@@ -1015,6 +1022,10 @@ footer .section2 .subscribeDiv {
   gap: 1rem;
 }
 
+footer .section2 .subscribeDivParagraph{
+  width:60%;
+} 
+
 footer .section2 .subscribeDiv h4 {
   font-size: 1.8rem;
   font-family: "barlow";
@@ -1091,8 +1102,8 @@ footer hr {
 @media screen and (max-width: 1024px) {
   body {
     background-image: linear-gradient(
-        rgba(253, 253, 253, 0.6),
-        /* Opacity color */ rgba(253, 253, 253, 0.6)
+        rgba(253, 253, 253, 0.7),
+        /* Opacity color */ rgba(253, 253, 253, 0.7)
           /* Same color for the gradient effect */
       ),
       url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NTkiIGhlaWdodD0iNjA1Ij48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI2Ij48cGF0aCBzdHJva2U9IiNFM0VCRjEiIGQ9Ik0yMTQgMHYxMDkiLz48Y2lyY2xlIGN4PSIzNjIuNSIgY3k9IjUzMy41IiByPSI2NS41IiBzdHJva2U9IiNFM0VCRjEiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBzdHJva2U9IiM2N0JFQ0UiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0yNzQgMjY3YzAtNDkuNzA2IDQwLjA3LTkwIDg5LjUtOTBzODkuNSA0MC4yOTQgODkuNSA5MCIvPjxnIHN0cm9rZT0iIzY3QkVDRSI+PHBhdGggZD0iTTM5Ljg4MSAxNjQuOTgxbDM3LjAwMi04OC4xMzMiLz48cGF0aCBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMzguMzMgMTMyLjgyMkwuNzI1IDExNS45N2wzNy42MDQtMTYuODAyIi8+PC9nPjxnIHN0cm9rZT0iI0UzRUJGMSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3OC41MjUgMzU3LjA3Mmg0Mi40NjNNMjIwLjk4OCAzODMuMzk1aC00Mi40NjMiLz48L2c+PHBhdGggc3Ryb2tlPSIjNjdCRUNFIiBkPSJNMTEzLjA4MiAyNDAuMzk0czMuNDE2IDE2LjQzOS04Ljk3NiAyNS41M20tNy45NjUtMjUuNTNzMy40MTYgMTYuNDM5LTguOTc1IDI1LjUzIi8+PC9nPjwvc3ZnPg==),
@@ -1468,7 +1479,7 @@ footer hr {
   }
 
   /* /////////////////////////////////////////////////////////////// */
-  nav{
+  nav {
     width: 100%;
   }
   nav #navLinkDiv {
@@ -1499,14 +1510,11 @@ footer hr {
   }
   .mobileDrawer .buttonDiv p {
     font-size: 12px;
-  letter-spacing: 1px;
+    letter-spacing: 1px;
   }
-  
-  
+
   /* //////////////////////////////////////////////////////////////////////////////// */
-  
-  
-  
+
   .hero {
     width: 100%;
     max-width: 100%;
@@ -1535,224 +1543,461 @@ footer hr {
   .hero .flexRow2 {
     flex-direction: column;
     width: 100%;
+  }
+  /* /////////////////////////////////////////// */
+
+  main .reviewsColorContainer {
+    background: linear-gradient(to bottom, #fcfcfc, #f0f4f5);
+    margin: 3rem 0rem 0 0;
+    border-radius: 10px;
+    padding: 0 0.8rem;
+  }
+  main .reviews {
+    display: flex;
+    /* row-gap: 2rem; */
+    width: 100% !important;
+    max-width: 100rem !important;
+    justify-content: space-between;
+    gap: 1rem;
+    margin: 0rem auto;
+    padding: 3rem 0;
+  }
+  main .reviews div {
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 7px;
+  }
+
+  main .reviews img {
+    max-width: 4.4rem;
+    border-radius: 50%;
+  }
+  main .reviews p {
+    font-size: larger;
+  }
+  main .reviews svg {
+    font-size: larger;
+    width: 55px;
+  }
+
+  main .reviewHeadingStyle {
+    color: rgb(62, 84, 163);
+    letter-spacing: 2px;
+    font-weight: 900;
+  }
+  main .reviewParagraphStyle {
+    font-size: 0.68rem !important;
+  }
+  main #reviewInnerInnerDiv p {
+    font-size: small !important;
+  }
+
+  /* ////////////////////////////////////////////////////////////////////// */
+
+  main .sponsors {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    gap: 2rem;
+    margin-top: 3rem;
+    margin-bottom: 0;
+  }
+
+  .sponsersInnerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Optional: Add space between items */
+    width: 100%; /* Ensure it takes full width of the container */
+    gap: 0.7rem;
+  }
+
+  .sponsersInnerDiv .imageDiv,
+  .sponsersInnerDiv .imageDiv2,
+  .sponsersInnerDiv .imageDiv3 {
+    max-width: 100%; /* Ensure each div takes up to 33% of the container */
+    padding: 1.1rem;
+  }
+
+  .sponsersInnerDiv img {
+    width: 60%; /* Make images take full width of the parent div */
+    height: auto; /* Maintain the aspect ratio of images */
+  }
+  .sponsors h4 {
+    font-size: small;
+    letter-spacing: 1px;
+    font-weight: 800;
+  }
+
+  /* ///////////////////////////////////////////////////////////////////////////// */
+
+  main .features {
+    padding: 0 0.7rem;
+    width: 100%;
+    max-width: 70rem;
+    margin: 1rem auto;
+    width: 100%;
+    max-width: 75rem;
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "img1"
+      "text1"
+      "img2"
+      "text2"
+      "img3"
+      "text3"
+      "img4"
+      "text4"
+      "img5"
+      "text5";
+    gap: 2.5rem;
+    margin-top: 7rem;
+  }
+  .item1 {
+    grid-area: img1;
+  }
+  .item2 {
+    grid-area: text1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .item3 {
+    grid-area: text2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .item4 {
+    grid-area: img2;
+  }
+  .item5 {
+    grid-area: img3;
+  }
+  .item6 {
+    grid-area: text3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .item7 {
+    grid-area: text4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .item8 {
+    grid-area: img4;
+  }
+  .item9 {
+    grid-area: img5;
+  }
+  .item10 {
+    grid-area: text5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main .features .emoji {
+    font-size: xx-large;
+  }
+
+  main .features .textFlex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 1.5rem;
+  }
+  main .textFlex > p {
+    font-size: 1rem;
+  }
+
+  main .textFlex > h3 {
+    font-size: 2.2rem;
+  }
+
+  /* //////////////////////////////////////////////////////////// */
+
+  .working {
+    margin: 7rem 0rem;
+    padding: 3rem 0;
+  }
+  .working .workingMainDiv {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  .working .workingLeftDiv {
+    width: 100%;
+    font-size: small;
+    justify-content: center;
+  }
+  .working .workingRightDiv {
+    width: 100%;
+  }
+
+  .working summary > h6 {
+    font-size: 1.1rem;
+  }
+
+  .working div > h4 {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .working details[open] div p {
+    padding-top: 0.1rem;
+    font-size: 14px;
+  }
+  .working details[open] summary > h6 {
+    font-size: 1.1rem;
+  }
+
+  .working details[open] {
+    background-color: #3e54a3;
+    padding: 0.7rem 1.5rem;
+  }
+
+  /* Non Active /////////////////////////////// */
+  .working details {
+    background-color: white;
+    padding: 0rem 1.5rem;
+    border-radius: 10px;
+  }
+
+  /* ////////////////////////////////////////////////////////// */
+
+  .pro .proUpperDiv h2 {
+    font-size: 2rem;
+  }
+  .pro p {
+    font-size: 16px !important;
+  }
+  .pro .proMiddleDiv {
+    padding: 0 0.7rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pro .proMiddleDiv h3 {
+    font-size: x-large;
+  }
+
+  .pro {
+    max-width: 100%;
+    margin: 0rem auto;
+    padding: 0 0.3rem;
+    gap: 3rem;
+  }
+  .pro .proUpperDiv {
+    gap: 1.5rem;
+  }
+
+  .pro p {
+    color: #737373;
+    font-size: large;
+  }
+
+  .pro .flexColoumn {
+    gap: 1rem;
+    padding: 2rem 1rem;
+  }
+
+  .pro .proLowerDiv button {
+    font-size: 13px;
+  }
+  .pro svg {
+    width: 55px;
+  }
+
+  /* ///////////////////////////////////////////////////////////// */
+
+  .carousel-item {
+    min-width: 100%; /* Show 3 items at a time */
+  }
+  .communityTopDiv button {
+    padding: 0.8rem;
+  }
+  .communityTopDiv h2 {
+    font-size: 2.4rem;
+    text-align: center;
+  }
+  .community .card p {
+    font-size: medium;
+  }
+  .community .card .pfp h6 {
+    color: #3e54a6;
+    font-size: 15px;
+  }
+  .community .card .pfp p {
+    font-size: small;
+  }
+
+  .community {
+    margin: 6rem 0 0 0;
+  }
+
+  .community .communityMainDiv {
+    margin: 1rem auto;
+    gap: 1.5rem;
+  }
+  .communityTopDiv {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* /////////////////////////////////////////////////////////////// */
+
+  .faqs {
+    margin-top: 4rem;
+  }
+  .faqs h2 {
+    font-size: xx-large;
+  }
+  .faqs .detailDiv {
+    width: 90%;
+    gap: 1rem;
+  }
+  .faqs details p {
+    font-size: 14px;
+    padding-bottom: 0.5rem;
+  }
+  .faqs {
+    margin: 5rem 0 0 0;
+    gap: 2.5rem;
+  }
+  .faqs details {
+    padding: 0.1rem 1.1rem;
+  }
+  /* /////////////////////////////////////////////////// */
+
+  .backgroundSvg {
+    padding-top: 10rem;
+    padding-bottom: 4rem;
+    background-image: linear-gradient(
+        rgba(253, 253, 253, 0.7),
+        /* Opacity color */ rgba(253, 253, 253, 0.7)
+          /* Same color for the gradient effect */
+      ),
+      url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NTkiIGhlaWdodD0iNjA1Ij48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMgMykiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI2Ij48cGF0aCBzdHJva2U9IiNFM0VCRjEiIGQ9Ik0yMTQgMHYxMDkiLz48Y2lyY2xlIGN4PSIzNjIuNSIgY3k9IjUzMy41IiByPSI2NS41IiBzdHJva2U9IiNFM0VCRjEiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz48cGF0aCBzdHJva2U9IiM2N0JFQ0UiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGQ9Ik0yNzQgMjY3YzAtNDkuNzA2IDQwLjA3LTkwIDg5LjUtOTBzODkuNSA0MC4yOTQgODkuNSA5MCIvPjxnIHN0cm9rZT0iIzY3QkVDRSI+PHBhdGggZD0iTTM5Ljg4MSAxNjQuOTgxbDM3LjAwMi04OC4xMzMiLz48cGF0aCBzdHJva2UtbGluZWpvaW49InJvdW5kIiBkPSJNMzguMzMgMTMyLjgyMkwuNzI1IDExNS45N2wzNy42MDQtMTYuODAyIi8+PC9nPjxnIHN0cm9rZT0iI0UzRUJGMSIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCI+PHBhdGggZD0iTTE3OC41MjUgMzU3LjA3Mmg0Mi40NjNNMjIwLjk4OCAzODMuMzk1aC00Mi40NjMiLz48L2c+PHBhdGggc3Ryb2tlPSIjNjdCRUNFIiBkPSJNMTEzLjA4MiAyNDAuMzk0czMuNDE2IDE2LjQzOS04Ljk3NiAyNS41M20tNy45NjUtMjUuNTNzMy40MTYgMTYuNDM5LTguOTc1IDI1LjUzIi8+PC9nPjwvc3ZnPg==),
+      url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NzgiIGhlaWdodD0iNjA1Ij48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIHN0cm9rZT0iI0UzRUJGMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjYiIGQ9Ik0xNTAuNzg2IDQ4My43MDhjLTcuNTQgMS41NDQtMTQuMjAzLTQuNzUyLTE1LjE3Ni0xMS45ODItMS41NjUtMTEuNjk3IDIuMDEzLTIzLjA2MS01Ljc4NC0zMy40NTYtMi4zMy0zLjExLTguNDY0LTguNDc4LTEyLjgyOC04LjQ3OCA0LjM2NCAwIDEwLjQ5Ni01LjM2NSAxMi44MjgtOC40NzQgNy43OTctMTAuMzk1IDQuMjE5LTIxLjc1NiA1Ljc4NC0zMy40NTUuOTczLTcuMjMyIDcuNjM2LTEzLjUyOCAxNS4xNzYtMTEuOTgzbS0zNS44MDcgMTA3LjgyOGMtNy41NCAxLjU0NC0xNC4yMDQtNC43NTItMTUuMTc2LTExLjk4Mi0xLjU2Ni0xMS42OTcgMi4wMTMtMjMuMDYxLTUuNzg1LTMzLjQ1Ni0yLjMzLTMuMTEtOC40NjQtOC40NzgtMTIuODI3LTguNDc4IDQuMzYzIDAgMTAuNDk2LTUuMzY1IDEyLjgyNy04LjQ3NCA3Ljc5OC0xMC4zOTUgNC4yMTktMjEuNzU2IDUuNzg1LTMzLjQ1NS45NzItNy4yMzIgNy42MzUtMTMuNTI4IDE1LjE3Ni0xMS45ODNNNzkuMTcgNDgzLjcwOGMtNy41NCAxLjU0NC0xNC4yMDQtNC43NTItMTUuMTc2LTExLjk4Mi0xLjU2Ni0xMS42OTcgMi4wMTMtMjMuMDYxLTUuNzg1LTMzLjQ1Ni0yLjMzLTMuMTEtOC40NjItOC40NzgtMTIuODI2LTguNDc4IDQuMzY0IDAgMTAuNDk1LTUuMzY1IDEyLjgyNi04LjQ3NCA3Ljc5OC0xMC4zOTUgNC4yMTktMjEuNzU2IDUuNzg1LTMzLjQ1NS45NzItNy4yMzIgNy42MzYtMTMuNTI4IDE1LjE3Ni0xMS45ODMiLz48ZyBmaWxsPSIjNjlCRUQwIiBmaWxsLXJ1bGU9Im5vbnplcm8iIHN0cm9rZT0iIzY5QkVEMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzU0IDIzNSkiPjxlbGxpcHNlIGN4PSI0Ljc1IiBjeT0iNC43MDYiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iMzMuMjUiIGN5PSI0LjcwNiIgcng9IjQuNzUiIHJ5PSI0LjcwNiIvPjxlbGxpcHNlIGN4PSI0Ljc1IiBjeT0iMTguODI0IiByeD0iNC43NSIgcnk9IjQuNzA2Ii8+PGVsbGlwc2UgY3g9IjMzLjI1IiBjeT0iMTguODI0IiByeD0iNC43NSIgcnk9IjQuNzA2Ii8+PGVsbGlwc2UgY3g9IjQuNzUiIGN5PSIzMi45NDEiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iMzMuMjUiIGN5PSIzMi45NDEiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iMTkiIGN5PSI0Ny4wNTkiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iMzMuMjUiIGN5PSI0Ny4wNTkiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iMTkiIGN5PSI2MS4xNzYiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iMTkiIGN5PSI0LjcwNiIgcng9IjQuNzUiIHJ5PSI0LjcwNiIvPjxlbGxpcHNlIGN4PSIxOSIgY3k9IjE4LjgyNCIgcng9IjQuNzUiIHJ5PSI0LjcwNiIvPjxlbGxpcHNlIGN4PSIxOSIgY3k9IjMyLjk0MSIgcng9IjQuNzUiIHJ5PSI0LjcwNiIvPjxlbGxpcHNlIGN4PSI0Ljc1IiBjeT0iNDcuMDU5IiByeD0iNC43NSIgcnk9IjQuNzA2Ii8+PGVsbGlwc2UgY3g9IjQuNzUiIGN5PSI2MS4xNzYiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iMzMuMjUiIGN5PSI2MS4xNzYiIHJ4PSI0Ljc1IiByeT0iNC43MDYiLz48ZWxsaXBzZSBjeD0iNC43NSIgY3k9Ijc1LjI5NCIgcng9IjQuNzUiIHJ5PSI0LjcwNiIvPjxlbGxpcHNlIGN4PSIxOSIgY3k9Ijc1LjI5NCIgcng9IjQuNzUiIHJ5PSI0LjcwNiIvPjxlbGxpcHNlIGN4PSIzMy4yNSIgY3k9Ijc1LjI5NCIgcng9IjQuNzUiIHJ5PSI0LjcwNiIvPjwvZz48cGF0aCBzdHJva2U9IiNGOUM3QzUiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI2IiBkPSJNMjE5IDYwMmwzOC0xNy4wMjVMMjE5LjAwMSA1NjhNMjM4IDEyOGgtMjFWM2gyMSIvPjxnIHN0cm9rZT0iI0Y5QzdDNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2Utd2lkdGg9IjQiPjxwYXRoIGQ9Ik0zMDkuMDgxIDQyNC4wNjJsMTYuNjE0LTE2Ljk3MSAxNi42MTYgMTYuOTcyTTM0Mi4zMTEgNDI0LjA2MmwxNi42MTUtMTYuOTcxIDE2LjYxNSAxNi45NzJNMzc1LjU0MSA0MjQuMDYybDE2LjYxNS0xNi45NzEgMTYuNjE1IDE2Ljk3Mk00MDguNzcxIDQyNC4wNjJsMTYuNjE1LTE2Ljk3MSAxNi42MTYgMTYuOTcyTTQ0Mi4wMDIgNDI0LjA2MmwxNi42MTQtMTYuOTcxIDE2LjYxNiAxNi45NzIiLz48L2c+PGcgc3Ryb2tlPSIjRTNFQkYxIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS13aWR0aD0iNiI+PHBhdGggZD0iTTMuNTI4IDIyMC4wMDdMNjIuNDgyIDgwLjAyNU0zNy4xNzYgMjIwLjAwN0w5Ni4xMyA4MC4wMjUiLz48L2c+PC9nPjwvc3ZnPg==);
+    background-repeat: no-repeat, no-repeat;
+    background-position: left -5% top 80%, right -5% top 30%;
+    background-repeat: no-repeat, no-repeat;
+  }
+  .portfolio {
+    padding: 0 1rem;
+    gap: 2rem;
+    margin-top: -4rem;
+  }
+  .portfolio h2 {
+    font-size: 2.8rem;
+    font-weight: 500;
+  }
+  .portfolio p {
+    font-size: medium;
+    color: #737373;
+  }
+  .portfolio .flexRow1 button {
+    font-size: small;
+    gap: 1rem;
+    padding: 0.6rem 2rem;
+  }
+
+  /* ////////////////////////////////////////////////////////////////////////////////////////// */
+
+  .hiring img {
+    max-width: 100%;
+  }
+
+  .hiring .hiringMainDiv {
+    margin: 0rem auto;
+    gap: 1rem;
+  }
+  .hiring .hiringMainDiv div {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .hiring button {
+    font-size: 13px;
+    width: 60%;
+    padding: 0.8rem 0.7rem;
+    font-weight: 800;
+  }
+  
+
+  .hiring .hiringInfoDiv p {
+    font-size: 15px;
+  }
+  .hiring .hiringInfoDiv h4 {
+    font-size: 2rem;
+    font-weight: 500;
+  }
+  .hiring .hiringInfoDiv {
+    gap: 1.5rem;
+    padding-top: 1.2rem;
+    width: 93% !important;
+  }
+  .hiring .imageDiv {
+    padding-top: 1.5rem;
+  }
+
+  /* ////////////////////////////////////////////////////////// */
+
+
+  footer .section1{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  footer .section2{
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer .section2 .linkDivWrapper{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
     
   }
-/* /////////////////////////////////////////// */
 
-main .reviewsColorContainer {
-  background: linear-gradient(to bottom, #fcfcfc, #f0f4f5);
-  margin: 3rem 0rem 0 0;
-  border-radius: 10px;
-  padding: 0 0.8rem;
-}
-main .reviews {
-  display: flex;
-  /* row-gap: 2rem; */
-  width: 100% !important;
-  max-width: 100rem !important;
-  justify-content: space-between;
-  gap: 1rem;
-  margin: 0rem auto;
-  padding: 3rem 0;
-}
-main .reviews div {
-  gap: 0.5rem;
-  padding: .5rem 1rem;
-  border-radius: 7px;
-}
+  footer .subscribeDiv{
+    width: 80% !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  footer .subscribeDiv .subscribeDivButtonDiv{
+    display: flex;
+    flex-direction: column;
+  }
 
-main .reviews img {
-  max-width: 4.4rem;
-  border-radius: 50%;
-}
-main .reviews p {
-  font-size: larger;
-}
-main .reviews svg {
-  font-size: larger;
-  width: 55px;
-}
+  footer .subscribeDiv .subscribeDivButtonDiv input{
+    width: 100% !important;
+  }
 
-main .reviewHeadingStyle {
-  color: rgb(62, 84, 163);
-  letter-spacing: 2px;
-  font-weight: 900;
-}
-main .reviewParagraphStyle {
-  font-size: 0.68rem !important;
-}
-main #reviewInnerInnerDiv p{
-  font-size: small !important;
-}
+  footer .subscribeDiv .subscribeDivParagraph{
+    width: 100% !important;
+    text-align: center;
+  }
 
-/* ////////////////////////////////////////////////////////////////////// */
-
-main .sponsors {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  gap: 2rem;
-  margin-top: 3rem;
-  margin-bottom: 0;
-}
-
-.sponsersInnerDiv {
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Optional: Add space between items */
-  width: 100%; /* Ensure it takes full width of the container */
-  gap: 0.7rem;
-}
-
-.sponsersInnerDiv .imageDiv,
-.sponsersInnerDiv .imageDiv2,
-.sponsersInnerDiv .imageDiv3 {
-  max-width: 100%; /* Ensure each div takes up to 33% of the container */
-  padding: 1.1rem;
-}
-
-.sponsersInnerDiv img {
-  width: 60%; /* Make images take full width of the parent div */
-  height: auto; /* Maintain the aspect ratio of images */
-}
-.sponsors h4{
-  font-size: small;
-  letter-spacing: 1px;
-  font-weight: 800;
-}
-
-/* ///////////////////////////////////////////////////////////////////////////// */
-
-main .features {
-  padding: 0 0.7rem;
-  width: 100%;
-  max-width: 70rem;
-  margin: 1rem auto;
-  width: 100%;
-  max-width: 75rem;
-  margin: 1rem auto;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-areas:
-    "img1"
-    "text1"
-    "img2"
-    "text2"
-    "img3"
-    "text3"
-    "img4"
-    "text4"
-    "img5"
-    "text5";
-  gap: 2.5rem;
-  margin-top: 7rem;
-}
-.item1 {
-  grid-area: img1;
-}
-.item2 {
-  grid-area: text1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.item3 {
-  grid-area: text2;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.item4 {
-  grid-area: img2;
-}
-.item5 {
-  grid-area: img3;
-}
-.item6 {
-  grid-area: text3;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.item7 {
-  grid-area: text4;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.item8 {
-  grid-area: img4;
-}
-.item9 {
-  grid-area: img5;
-}
-.item10 {
-  grid-area: text5;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-main .features .emoji {
-  font-size: xx-large;
-}
-
-main .features .textFlex {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  gap: 1.5rem;
-}
-main .textFlex > p {
-  font-size: 1rem;
-}
-
-main .textFlex > h3 {
-  font-size: 2.2rem;
-}
-
-/* //////////////////////////////////////////////////////////// */
-
-.working {
-  margin: 7rem 0rem;
-  padding: 3rem 0;
-}
-.working .workingMainDiv {
-  width: 100%;
-  max-width: 100%;
-  margin: 0;
-  padding: 0 1rem;
-}
-
-.working .workingLeftDiv {
-  width: 100%;
-  font-size: small;
-  justify-content: center;
-}
-.working .workingRightDiv {
-  width: 100%;
-}
-
-.working summary > h6 {
-  font-size: 1.1rem;
-}
-
-.working div > h4 {
-  font-size: 2rem;
-  text-align: center;
-}
-.working details[open] div p {
-  padding-top: 0.1rem;
-  font-size: 14px;
-}
-.working details[open] summary > h6 {
-  font-size: 1.1rem;
-}
+  footer .section3{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

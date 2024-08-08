@@ -145,14 +145,15 @@ function drawerClicked() {
     }
   }
 
-  function mobileDrawerClicked(){
-    const info = document.querySelector(".mobileDrawer");
-    if (info.style.display === "none" || info.style.display === "") {
-        info.style.display = "block";
-      } else {
-        info.style.display = "none";
-      }
-  }
+  function mobileDrawerClicked() {
+    const drawer = document.querySelector(".mobileDrawer");
+    
+    if (drawer.classList.contains("open")) {
+        drawer.classList.remove("open");
+    } else {
+        drawer.classList.add("open");
+    }
+}
 
 
 // Media Query used to change the image in different aspects of windows, but everytime to change
