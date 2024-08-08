@@ -65,6 +65,12 @@ header {
 header a {
   color: white;
 }
+header div {
+  display: flex;
+  gap: 0.3rem;
+  /* justify-content: center; */
+  align-items: center;
+}
 
 /* ///////////////////////////////////////////////////////// */
 
@@ -986,8 +992,11 @@ footer .section2 {
   justify-content: space-between;
 }
 
-footer .section2 .linkDivWrapper{
-  display: flex; gap: 3rem;
+footer .section2 .linkDivWrapper {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  /* background-color: #1c2022; */
 }
 footer .section2 .linkDiv {
   display: flex;
@@ -1048,7 +1057,6 @@ footer .section2 .linkDiv a {
 footer .section2 .linkDiv a:hover {
   text-decoration: underline;
 }
-
 
 footer .section3 {
   width: 100%;
@@ -1317,7 +1325,7 @@ footer hr {
   }
   /* //////////////////////////////////////////////////////////////////////////////////// */
   .hiring img {
-    max-width: 85%;
+    max-width: 70%;
     justify-self: flex-end;
   }
 
@@ -1356,6 +1364,7 @@ footer hr {
   .hiring .hiringInfoDiv {
     gap: 1.5rem;
     padding-top: 1.2rem;
+    width: 60% !important;
   }
   .hiring .imageDiv {
     padding-top: 2rem;
@@ -1363,29 +1372,387 @@ footer hr {
 
   /* /////////////////////////////////////////////////////////////// */
 
-  footer{
-    padding: 0 0.7rem;
+  footer {
+    padding: 0 1rem;
   }
 
- 
   footer .section2 {
-    width: 100%;
-    max-width: 88rem;
-    margin: 1rem auto;
-    margin-bottom: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 3rem;
+    margin-bottom: 2rem;
   }
 
-  footer .section2 .subscribeDiv{
+  footer .section2 .subscribeDiv {
     width: 60%;
-
+  }
+  footer .section2 .subscribeDiv h4 {
+    font-size: 1.6rem;
+  }
+  footer .section2 button {
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 0rem 1.5rem !important;
+    height: 2.5rem !important;
   }
 
-  footer .section2 .linkDivWrapper{
+  footer .section2 input {
+    font-size: 14px !important;
+    padding: 0.3rem !important;
+    height: 2.5rem;
+  }
+  footer .section1 {
+    margin: 0rem auto;
+    padding: 3rem 0 0.7rem 0;
+  }
+  footer .section2 .subscribeDiv div p {
+    font-size: 0.9rem;
+  }
+  footer .section2 .linkDiv {
+    gap: 0.5rem;
+  }
+  footer .section2 .linkDiv ul {
+    gap: 0.1rem;
+  }
 
+  footer .section2 .linkDiv a {
+    font-size: 0.9rem;
+  }
+  footer .section2 .linkDiv h6 {
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+  footer .section3 a {
+    font-size: 0.8rem;
+  }
+
+  footer .section3 a {
+    font-size: 0.8rem;
+  }
+  footer .section3 ul {
+    gap: 1rem;
+  }
+
+  footer .section3 div p {
+    font-size: 0.9rem;
+  }
+
+  footer .section2 .subscribeDiv {
+    width: 50%;
+  }
+}
+
+/* //////////////////////////////////////////////////////////////////// */
+/* Mobile Devices */
+
+@media screen and (max-width: 768px) {
+  body {
+    overflow-x: hidden;
+  }
+  /* //////////////////////////////////////////////////////////////////// */
+
+  header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  header div {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* /////////////////////////////////////////////////////////////// */
+  nav{
+    width: 100%;
+  }
+  nav #navLinkDiv {
+    display: none;
+  }
+  nav .drawerDiv {
+    display: flex;
+  }
+
+  /* ////////////////////////////////////////////////////////////// */
+  .mobileDrawer {
+    position: absolute;
+    width: 100%;
+  }
+
+  .mobileDrawer hr {
+    background-color: #c1c3c5;
+    border: 0 solid #6c757d;
+    height: 0.06rem;
+  }
+  .mobileDrawer li {
+    gap: 0.6rem;
+    padding: 0.6rem 1.5rem;
+  }
+  .mobileDrawer .buttonDiv {
+    flex-grow: 1;
+    padding: 0.65rem;
+  }
+  .mobileDrawer .buttonDiv p {
+    font-size: 12px;
+  letter-spacing: 1px;
   }
   
+  
+  /* //////////////////////////////////////////////////////////////////////////////// */
+  
+  
+  
+  .hero {
+    width: 100%;
+    max-width: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 3rem 1rem 0rem 1rem;
+    gap: 3rem;
+  }
+  .hero div h1 {
+    font-size: 2.7rem;
+    font-weight: 500;
+  }
+
+  .hero p {
+    font-size: 16px !important;
+  }
+  .hero .rightDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .hero .rightDiv img {
+    max-width: 90% !important;
+  }
+
+  .hero .flexRow2 {
+    flex-direction: column;
+    width: 100%;
+    
+  }
+/* /////////////////////////////////////////// */
+
+main .reviewsColorContainer {
+  background: linear-gradient(to bottom, #fcfcfc, #f0f4f5);
+  margin: 3rem 0rem 0 0;
+  border-radius: 10px;
+  padding: 0 0.8rem;
+}
+main .reviews {
+  display: flex;
+  /* row-gap: 2rem; */
+  width: 100% !important;
+  max-width: 100rem !important;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0rem auto;
+  padding: 3rem 0;
+}
+main .reviews div {
+  gap: 0.5rem;
+  padding: .5rem 1rem;
+  border-radius: 7px;
+}
+
+main .reviews img {
+  max-width: 4.4rem;
+  border-radius: 50%;
+}
+main .reviews p {
+  font-size: larger;
+}
+main .reviews svg {
+  font-size: larger;
+  width: 55px;
+}
+
+main .reviewHeadingStyle {
+  color: rgb(62, 84, 163);
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+main .reviewParagraphStyle {
+  font-size: 0.68rem !important;
+}
+main #reviewInnerInnerDiv p{
+  font-size: small !important;
+}
+
+/* ////////////////////////////////////////////////////////////////////// */
+
+main .sponsors {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  gap: 2rem;
+  margin-top: 3rem;
+  margin-bottom: 0;
+}
+
+.sponsersInnerDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Optional: Add space between items */
+  width: 100%; /* Ensure it takes full width of the container */
+  gap: 0.7rem;
+}
+
+.sponsersInnerDiv .imageDiv,
+.sponsersInnerDiv .imageDiv2,
+.sponsersInnerDiv .imageDiv3 {
+  max-width: 100%; /* Ensure each div takes up to 33% of the container */
+  padding: 1.1rem;
+}
+
+.sponsersInnerDiv img {
+  width: 60%; /* Make images take full width of the parent div */
+  height: auto; /* Maintain the aspect ratio of images */
+}
+.sponsors h4{
+  font-size: small;
+  letter-spacing: 1px;
+  font-weight: 800;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////// */
+
+main .features {
+  padding: 0 0.7rem;
+  width: 100%;
+  max-width: 70rem;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 75rem;
+  margin: 1rem auto;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-areas:
+    "img1"
+    "text1"
+    "img2"
+    "text2"
+    "img3"
+    "text3"
+    "img4"
+    "text4"
+    "img5"
+    "text5";
+  gap: 2.5rem;
+  margin-top: 7rem;
+}
+.item1 {
+  grid-area: img1;
+}
+.item2 {
+  grid-area: text1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item3 {
+  grid-area: text2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item4 {
+  grid-area: img2;
+}
+.item5 {
+  grid-area: img3;
+}
+.item6 {
+  grid-area: text3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item7 {
+  grid-area: text4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.item8 {
+  grid-area: img4;
+}
+.item9 {
+  grid-area: img5;
+}
+.item10 {
+  grid-area: text5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+main .features .emoji {
+  font-size: xx-large;
+}
+
+main .features .textFlex {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+main .textFlex > p {
+  font-size: 1rem;
+}
+
+main .textFlex > h3 {
+  font-size: 2.2rem;
+}
+
+/* //////////////////////////////////////////////////////////// */
+
+.working {
+  margin: 7rem 0rem;
+  padding: 3rem 0;
+}
+.working .workingMainDiv {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0 1rem;
+}
+
+.working .workingLeftDiv {
+  width: 100%;
+  font-size: small;
+  justify-content: center;
+}
+.working .workingRightDiv {
+  width: 100%;
+}
+
+.working summary > h6 {
+  font-size: 1.1rem;
+}
+
+.working div > h4 {
+  font-size: 2rem;
+  text-align: center;
+}
+.working details[open] div p {
+  padding-top: 0.1rem;
+  font-size: 14px;
+}
+.working details[open] summary > h6 {
+  font-size: 1.1rem;
+}
 }
